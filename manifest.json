@@ -2,15 +2,17 @@ JSON
 {
   "name": "Auto Socorro Papa-Léguas",
   "short_name": "Papa-Léguas",
-  "start_url": "https://sites.google.com/view/autosocorropapaleguas/página-inicial",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#FFD700",
   "icons": [
     {
-      "src": "https://imgur.com/vossa-imagem-512.png",
+      "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
+
 }
