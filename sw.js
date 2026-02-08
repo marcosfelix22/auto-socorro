@@ -1,24 +1,12 @@
-JavaScript
-const CACHE_NAME = 'papaleguas-v1';
-const ASSETS = [
-  '/',
-  'https://sites.google.com/view/autosocorropapaleguas/página-inicial'
-];
-
-// Instalação e Cache
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
-  );
+  self.skipWaiting();
 });
 
-// Intercepta as requisições
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
+});
+
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
+  // Necessário para o Chrome considerar um PWA instalável
+  event.respondWith(fetch(event.request));
 });
