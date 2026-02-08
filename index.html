@@ -1,19 +1,49 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <title>Auto Socorro Papa-Léguas</title>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-    // Redireciona para o Google Sites após carregar o PWA
-    window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Socorro Papa-Léguas</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFD700">
+    
+    <style>
+        body { 
+            background-color: #FFD700; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #333;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        h2 { color: #333; margin-top: 20px; }
+    </style>
+
+    <script>
+        // Registra o Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+
+        // Redireciona para o Google Sites após 2 segundos
+        setTimeout(function() {
+            window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
+        }, 2000);
+    </script>
 </head>
 <body>
-  <h1>Carregando Auto Socorro Papa-Léguas...</h1>
+    <div class="loader"></div>
+    <h2>Abrindo Auto Socorro Papa-Léguas...</h2>
 </body>
 </html>
