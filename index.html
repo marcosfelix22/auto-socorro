@@ -1,0 +1,19 @@
+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <title>Auto Socorro Papa-Léguas</title>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+    // Redireciona para o Google Sites após carregar o PWA
+    window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
+  </script>
+</head>
+<body>
+  <h1>Carregando Auto Socorro Papa-Léguas...</h1>
+</body>
+</html>
