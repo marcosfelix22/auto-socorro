@@ -1,18 +1,16 @@
-JSON
+
 {
   "name": "Auto Socorro Papa-Léguas",
   "short_name": "Papa-Léguas",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#FFD700",
   "theme_color": "#FFD700",
   "icons": [
     {
       "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
-
 }
