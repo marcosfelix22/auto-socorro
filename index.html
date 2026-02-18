@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <title>Auto Socorro Papa-Léguas</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+        setTimeout(() => {
+            window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
+        }, 3000);
+    </script>
+    <style>
+        body { background: #FFD700; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        .content { text-align: center; }
+        img { width: 150px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="icon.png" alt="Logo">
+        <h2 style="color: #333;">Auto Socorro Papa-Léguas</h2>
+        <p>Iniciando socorro rápido...</p>
+    </div>
+</body>
+</html>
