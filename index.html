@@ -6,84 +6,47 @@
     <link rel="manifest" href="manifest.json">
     <title>Login - Papa-Léguas</title>
     <style>
-        body { 
-            background: #1c59a8; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
-            margin: 0; 
-            font-family: Arial, sans-serif; 
-        }
-        .login-card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
-            text-align: center;
-            width: 85%;
-            max-width: 350px;
-        }
+        body { background: #1c59a8; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; }
+        .login-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; width: 85%; max-width: 350px; }
         img { width: 100px; margin-bottom: 15px; border-radius: 10px; }
-        input { 
-            width: 100%; 
-            padding: 12px; 
-            margin: 8px 0; 
-            border: 1px solid #ccc; 
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        button { 
-            background: #1c59a8; 
-            color: white; 
-            border: none; 
-            padding: 15px; 
-            border-radius: 8px; 
-            width: 100%; 
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+        input { width: 100%; padding: 15px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        button { background: #1c59a8; color: white; border: none; padding: 15px; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 18px; }
     </style>
 </head>
 <body>
     <div class="login-card">
         <img src="icon.png" alt="Logo">
         <h2 style="color: #333; margin: 0 0 10px 0;">Acesso Restrito</h2>
-        
-        <input type="text" id="usuario" placeholder="Utilizador">
-        <input type="password" id="senha" placeholder="Senha">
-        
-        <button onclick="logar()">ENTRAR NO SISTEMA</button>
+        <input type="text" id="usuario" placeholder="Utilizador" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <button onclick="tentarLogar()">ENTRAR NO SISTEMA</button>
     </div>
 
     <script>
-        function logar() {
-            const user = document.getElementById('usuario').value.toLowerCase();
+        function tentarLogar() {
+            // Trim remove espaços vazios acidentais
+            const user = document.getElementById('usuario').value.toLowerCase().trim();
             const pass = document.getElementById('senha').value;
 
-            // CADASTRO DE UTILIZADORES (Pode adicionar mais aqui)
+            // Lista de utilizadores autorizados
             const usuariosPermitidos = {
-                "marcosfelix22": "mfelix25",
-                 "prado": "pradopapaleguas",
-                 "quirino": "quirinopapa"
-                 "claudenes": "papaclau"
-                 "willams": "wilpapaleguas"
-                 "juliano": "julianopapaleguas"
+                "marcos": "12345",
+                "juliana": "socorro2026"
             };
 
+            console.log("Tentando login para:", user);
+
             if (usuariosPermitidos[user] === pass) {
-                window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
+                // Força o redirecionamento absoluto
+                window.location.replace("https://sites.google.com/view/autosocorropapaleguas/página-inicial");
             } else {
-                alert("Utilizador ou senha incorretos!");
+                alert("Utilizador ou senha incorretos! Verifique e tente novamente.");
             }
         }
-        
+
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            navigator.serviceWorker.register('sw.js').catch(err => console.log("Erro SW:", err));
         }
     </script>
 </body>
 </html>
-
