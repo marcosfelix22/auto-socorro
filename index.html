@@ -4,29 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
-    <title>Auto Socorro Papa-Léguas</title>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/auto-socorro/sw.js')
-            .then(() => console.log("Registrado!"))
-            .catch(err => console.log("Erro:", err));
-        }
-    </script>
+    <title>Login - Papa-Léguas</title>
     <style>
-        body { background: #1C59A8; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: sans-serif; text-align: center; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 80%; max-width: 350px; }
-        img { width: 120px; height: 120px; border-radius: 15px; margin-bottom: 15px; }
-        button { background: #333; color: white; border: none; padding: 15px 25px; border-radius: 10px; font-weight: bold; width: 100%; font-size: 16px; }
+        body { 
+            background: #1c59a8; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+        }
+        .login-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+            text-align: center;
+            width: 85%;
+            max-width: 350px;
+        }
+        img { width: 100px; margin-bottom: 15px; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button { 
+            background: #1c59a8; 
+            color: white; 
+            border: none; 
+            padding: 15px; 
+            border-radius: 8px; 
+            width: 100%; 
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <img src="icon.png" alt="Logo">
-        <h2>Papa-Léguas</h2>
-        <p>Acesse nosso APP</p>
-        <button onclick="window.location.href='https://sites.google.com/view/autosocorropapaleguas/página-inicial'">ACESSAR SITE</button>
+    <div class="login-card">
+        <img src="icon.png" alt="Logo Papa-Léguas">
+        <h2 style="color: #333; margin-bottom: 5px;">Acesso Restrito</h2>
+        <p style="color: #666; font-size: 14px;">Digite a senha para acessar o sistema.</p>
+        <input type="password" id="senha" placeholder="Senha de acesso">
+        <button onclick="logar()">ENTRAR NO SITE</button>
     </div>
+
+    <script>
+        function logar() {
+            const senha = document.getElementById('senha').value;
+            if (senha === "socorro2026") { // Você pode mudar essa senha aqui
+                window.location.href = "https://sites.google.com/view/autosocorropapaleguas/página-inicial";
+            } else {
+                alert("Senha inválida!");
+            }
+        }
+        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
-
-
