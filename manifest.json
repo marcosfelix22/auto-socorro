@@ -1,7 +1,7 @@
 {
   "name": "Auto Socorro Papa-Léguas",
   "short_name": "Papa-Léguas",
-  "start_url": "index.html",
+  "start_url": "/auto-socorro/",
   "display": "standalone",
   "background_color": "#FFD700",
   "theme_color": "#FFD700",
