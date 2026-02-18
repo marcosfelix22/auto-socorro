@@ -3,14 +3,15 @@
   "short_name": "Papa-Léguas",
   "start_url": "/auto-socorro/index.html",
   "display": "standalone",
-  "background_color": "#FFD700",
-  "theme_color": "#FFD700",
+  "background_color": "#1C59A8",
+  "theme_color": "##1C59A8",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "1024x1024",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
   ]
 }
+
